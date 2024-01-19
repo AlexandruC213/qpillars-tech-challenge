@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <q-header class="header">
     <div @click="router.push('/')" class="header-logo cursor-pointer">
       <q-icon name="storefront" size="2rem" color="secondary" />
       <q-img :src="logo" width="200px" class="q-ml-md" />
@@ -15,7 +15,7 @@
       name="img:public/icons/burger-menu.svg"
       class="header-burger-icon"
     />
-  </div>
+  </q-header>
 
   <q-drawer
     side="right"
