@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div>
+    <div @click="router.push('/')" class="header-logo cursor-pointer">
       <q-icon name="storefront" size="2rem" color="secondary" />
       <q-img :src="logo" width="200px" class="q-ml-md" />
     </div>
@@ -50,8 +50,4 @@ const showMenu = ref(false);
 const isSmallerHeader = computed(() => {
   return $q.screen.width < $q.screen.sizes.md;
 });
-
-const goToLink = (link) => {
-  router.push(link);
-};
 </script>

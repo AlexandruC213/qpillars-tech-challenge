@@ -3,23 +3,22 @@
     v-for="route in headerLinks"
     :key="route.link"
     :to="route.link"
-    class="header-actions-link text-body-16"
+    class="header-actions-link text-body-16-bold"
     :class="linkClass"
   >
     {{ route.label }}</router-link
   >
-  <router-link to="/register" class="header-actions-register text-body-16">
-    <q-icon
-      name="img:public/icons/user.svg"
-      color="white"
-      size="1.3rem"
-      class="q-pr-sm"
-    />
-    Sign Up
-  </router-link>
+  <ButtonDesign
+    @onAction="redirectToRegister"
+    icon="img:public/icons/user.svg"
+    text="Sign Up"
+  />
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
+import ButtonDesign from "./ButtonDesign.vue";
+
 const props = defineProps({
   linkClass: {
     type: String,
@@ -30,7 +29,7 @@ const props = defineProps({
 const headerLinks = [
   {
     label: "Marketplace",
-    link: "/",
+    link: "/marketplace",
   },
   {
     label: "Rankings",
@@ -41,4 +40,10 @@ const headerLinks = [
     link: "/connect-wallet",
   },
 ];
+
+const router = useRouter();
+
+const redirectToRegister = () => {
+  router.push("/register");
+};
 </script>

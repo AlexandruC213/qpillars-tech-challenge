@@ -19,6 +19,38 @@ body {
 .text-body-16 {
   font-family: $workSans;
   font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.text-body-16-bold {
+  font-family: $workSans;
+  font-style: normal;
   font-weight: 600;
   font-size: 16px;
+}
+
+.text-body-22-bold {
+  font-family: $workSans;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.text-body-24 {
+  font-family: $workSans;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.text-body-28-bold {
+  font-family: $workSans;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

@@ -1,0 +1,52 @@
+.homepage-container {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.card-row {
+  @include displayFlex(null, flex-start, flex-start);
+
+  &-left {
+    @include displayFlex(column, flex-start, flex-start);
+    width: 50%;
+
+    .details {
+      @include displayFlex(row, center, space-between);
+      width: 90%;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &-right {
+    width: 50%;
+  }
+}
+
+.card-title-row {
+  font-family: $workSans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 4.25rem;
+  line-height: 110%;
+  text-transform: capitalize;
+}
+
+.card-title-column {
+  font-family: $workSans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.375rem;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+
+.card-description {
+  font-family: $workSans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 160%;
+  text-transform: capitalize;
+}

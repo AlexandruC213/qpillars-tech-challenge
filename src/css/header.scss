@@ -2,6 +2,10 @@
   padding: 20px 50px;
   @include displayFlex(null, null, space-between);
 
+  &-logo {
+    @include displayFlex;
+  }
+
   &-actions {
     @include displayFlex;
     gap: 10px;
@@ -16,23 +20,6 @@
 
       text-decoration: none;
       transition: all 0.3s ease;
-    }
-
-    &-register {
-      @include displayFlex;
-      background: $secondary;
-      height: 60px;
-      color: $white;
-
-      padding: 0 30px;
-      border-radius: 20px;
-
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    &-register:hover {
-      transform: scale(0.95);
     }
 
     &-link:hover {
