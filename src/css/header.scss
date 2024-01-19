@@ -1,0 +1,74 @@
+.header {
+  padding: 20px 50px;
+  @include displayFlex(null, null, space-between);
+
+  &-actions {
+    @include displayFlex;
+    gap: 10px;
+
+    &-link {
+      @include displayFlex;
+      height: 46px;
+      color: $white;
+
+      padding: 0px 20px;
+      border-radius: 20px;
+
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    &-register {
+      @include displayFlex;
+      background: $secondary;
+      height: 60px;
+      color: $white;
+
+      padding: 0 30px;
+      border-radius: 20px;
+
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    &-register:hover {
+      transform: scale(0.95);
+    }
+
+    &-link:hover {
+      transform: scale(0.95);
+    }
+  }
+
+  &-burger-icon {
+    transition: all 0.3s ease;
+  }
+
+  &-burger-icon:hover {
+    transform: scale(0.95);
+  }
+}
+
+.drawer {
+  background-color: $primary;
+  position: relative;
+
+  &-links {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &-close-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    transition: all 0.3s ease;
+  }
+
+  &-close-icon:hover {
+    transform: scale(0.95);
+  }
+}

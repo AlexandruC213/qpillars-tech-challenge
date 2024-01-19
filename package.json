@@ -2,7 +2,7 @@
   "name": "qpillars-tech-challenge",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "productName": "NFT Marketplace",
   "author": "Chis Alexandru <alexandru_chis213@yahoo.com>",
   "private": true,
   "scripts": {

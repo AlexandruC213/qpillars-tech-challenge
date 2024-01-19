@@ -2,10 +2,9 @@
   <router-view />
 </template>
 
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { useQuasar } from "quasar";
 
-export default defineComponent({
-  name: 'App'
-})
+const $q = useQuasar();
+$q.screen.setSizes({ sm: 834, md: 1280 });
 </script>
