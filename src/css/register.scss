@@ -1,0 +1,83 @@
+.register-container {
+  @include displayFlex;
+  width: 100%;
+  height: 100%;
+  @media (max-width: 834px) {
+    @include displayFlex(column, flex-start);
+  }
+}
+
+.image-content {
+  width: 50%;
+  align-self: stretch;
+
+  @media (max-width: 834px) {
+    width: 100%;
+  }
+
+  .image {
+    height: 100%;
+
+    @media (max-width: 834px) {
+      height: 230px;
+    }
+  }
+}
+
+.form-content {
+  width: 50%;
+
+  @media (max-width: 834px) {
+    @include displayFlex(column);
+    width: 100%;
+  }
+
+  @media (max-width: 1440px) {
+    margin-bottom: 50px;
+  }
+
+  .title {
+    font-size: 51px;
+    font-style: normal;
+    font-weight: 600;
+
+    @media (max-width: 1440px) {
+      font-size: 38px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 834px) {
+      text-align: center;
+    }
+  }
+
+  .subtitle {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+    text-transform: capitalize;
+
+    @media (max-width: 1440px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 834px) {
+      text-align: center;
+    }
+  }
+
+  .form {
+    width: 50%;
+
+    .form-input {
+      background-color: #fff;
+      border-radius: 28px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 1440px) {
+      width: 80%;
+    }
+  }
+}

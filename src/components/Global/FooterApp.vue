@@ -8,7 +8,7 @@
         </div>
         <div class="q-mt-md">
           NFT marketplace UI created <br />
-          with Anima for Figma. <br />
+          with Anima for Figma.
         </div>
         <div class="q-my-md">Join our community</div>
         <div class="d-flex row">
@@ -32,18 +32,35 @@
         <router-link to="/rankings" class="q-my-md">Rankings</router-link>
         <router-link to="/connect-wallet">Connect a wallet</router-link>
       </div>
-      <div class="d-flex column">
+      <div class="d-flex column" :class="{ 'full-width': isMobileDisplay }">
         <div class="text-body-22-bold text-white">Join Our Weekly Digest</div>
         <div class="q-mt-lg q-mb-md">
-          Get exclusive promotions & updates straight to your inbox.
+          Get exclusive promotions & updates <br />
+          straight to your inbox.
         </div>
-        <div class="input-container">
+        <div v-if="!isMobileDisplay" class="input-container">
           <input
-            type="text"
+            type="email"
             class="input"
             placeholder="Enter your email here"
           />
           <ButtonDesign class="button" text="Subscribe" />
+        </div>
+        <div v-else class="full-width">
+          <q-input
+            type="email"
+            placeholder="Enter your email here"
+            class="input-mobile"
+            outlined
+            rounded
+          />
+          <q-btn
+            class="bg-secondary text-white full-width q-py-md text-body-16-bold q-mt-md"
+            style="border-radius: 20px"
+            label="Subscribe"
+            icon="img:/icons/envelope.svg"
+            no-caps
+          />
         </div>
       </div>
     </div>
@@ -52,12 +69,19 @@
 </template>
 
 <script setup>
+import { useQuasar } from "quasar";
+import { computed } from "vue";
 import { useRouter } from "vue-router";
 
 import logo from "/public/images/logo.svg";
 import ButtonDesign from "./ButtonDesign.vue";
 
+const $q = useQuasar();
 const router = useRouter();
+
+const isMobileDisplay = computed(() => {
+  return $q.screen.width < $q.screen.sizes.sm;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -77,16 +101,27 @@ const router = useRouter();
   padding: 40px 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #858584;
+
+  @media (max-width: 1280px) {
+    @include displayFlex(column, flex-start, flex-start);
+    padding: 40px 0;
+    width: 80%;
+  }
 }
 
 .footer-text {
   width: 1000px;
   margin-bottom: 30px;
-  text-align: left;
+  text-align: center;
   color: #ccc;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
+
+  @media (max-width: 1280px) {
+    text-align: left;
+    width: 80%;
+  }
 }
 
 .input-container {
@@ -110,8 +145,20 @@ const router = useRouter();
   }
 }
 
-.links-container a {
-  text-decoration: none;
-  color: #ccc;
+.links-container {
+  a {
+    text-decoration: none;
+    color: #ccc;
+  }
+  @media (max-width: 1280px) {
+    margin: 20px 0;
+  }
+}
+
+.input-mobile {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 28px;
+  margin-bottom: 20px;
 }
 </style>
