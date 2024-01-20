@@ -30,9 +30,9 @@
       </div>
       <div class="links-container d-flex column">
         <div class="text-body-22-bold q-mb-lg text-white">Explore</div>
-        <router-link to="/marketplace">Marketplace</router-link>
-        <router-link to="/rankings" class="q-my-md">Rankings</router-link>
-        <router-link to="/connect-wallet">Connect a wallet</router-link>
+        <router-link to="/">Marketplace</router-link>
+        <router-link to="/" class="q-my-md">Rankings</router-link>
+        <router-link to="/">Connect a wallet</router-link>
       </div>
       <div class="d-flex column" :class="{ 'full-width': isMobileDisplay }">
         <div class="text-body-22-bold text-white">Join Our Weekly Digest</div>

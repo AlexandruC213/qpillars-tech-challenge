@@ -29,15 +29,15 @@ const props = defineProps({
 const headerLinks = [
   {
     label: "Marketplace",
-    link: "/marketplace",
+    link: "/",
   },
   {
     label: "Rankings",
-    link: "/rankings",
+    link: "/",
   },
   {
     label: "Connect a wallet",
-    link: "/connect-wallet",
+    link: "/",
   },
 ];
 
