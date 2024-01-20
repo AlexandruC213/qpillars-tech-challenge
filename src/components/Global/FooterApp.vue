@@ -1,14 +1,16 @@
 <template>
   <q-footer class="container">
     <div class="footer text-body-16">
-      <div class="q-mt-md">
-        <div @click="router.push('/')" class="header-logo cursor-pointer">
+      <div class="q-mt-md container-info">
+        <div
+          @click="router.push('/')"
+          class="d-flex row items-center justify-start cursor-pointer"
+        >
           <q-icon name="storefront" size="2rem" color="secondary" />
           <q-img :src="logo" width="200px" class="q-ml-md" />
         </div>
         <div class="q-mt-md">
-          NFT marketplace UI created <br />
-          with Anima for Figma.
+          NFT marketplace UI created with Anima for Figma.
         </div>
         <div class="q-my-md">Join our community</div>
         <div class="d-flex row">
@@ -34,9 +36,8 @@
       </div>
       <div class="d-flex column" :class="{ 'full-width': isMobileDisplay }">
         <div class="text-body-22-bold text-white">Join Our Weekly Digest</div>
-        <div class="q-mt-lg q-mb-md">
-          Get exclusive promotions & updates <br />
-          straight to your inbox.
+        <div class="promotions-text q-mt-lg q-mb-md">
+          Get exclusive promotions & updates straight to your inbox.
         </div>
         <div v-if="!isMobileDisplay" class="input-container">
           <input
@@ -106,6 +107,22 @@ const isMobileDisplay = computed(() => {
     @include displayFlex(column, flex-start, flex-start);
     padding: 40px 0;
     width: 80%;
+  }
+}
+
+.container-info {
+  width: 30%;
+
+  @media (max-width: 1280px) {
+    width: 100%;
+  }
+}
+
+.promotions-text {
+  width: 65%;
+
+  @media (max-width: 1280px) {
+    width: 100%;
   }
 }
 
