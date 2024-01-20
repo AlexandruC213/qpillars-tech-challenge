@@ -8,7 +8,7 @@
     max-width: 800px;
   }
 
-  @media (max-width: 1280px) {
+  @media (max-width: 834px) {
     max-width: 100%;
     margin: 0 25px;
   }
@@ -114,6 +114,7 @@
 
 .creators-cards-container {
   @include displayFlex(row, center, space-between);
+  flex-wrap: wrap;
 
   @media (max-width: 834px) {
     @include displayFlex(column, center);
