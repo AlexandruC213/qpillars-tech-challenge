@@ -3,10 +3,23 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+
+  @media (max-width: 1280px) {
+    max-width: 800px;
+  }
+
+  @media (max-width: 1280px) {
+    max-width: 100%;
+    margin: 0 25px;
+  }
 }
 
 .card-row {
   @include displayFlex(null, flex-start, flex-start);
+
+  @media (max-width: 834px) {
+    @include displayFlex(column);
+  }
 
   &-left {
     @include displayFlex(column, flex-start, flex-start);
@@ -21,6 +34,25 @@
 
   &-right {
     width: 50%;
+
+    @media (max-width: 1280px) {
+      padding-left: 20px;
+    }
+
+    @media (max-width: 834px) {
+      padding-left: 0;
+      padding-top: 20px;
+    }
+  }
+}
+
+.card-column {
+  .container {
+    @include displayFlex(row, flex-start, space-between);
+
+    @media (max-width: 834px) {
+      @include displayFlex(row);
+    }
   }
 }
 
@@ -31,6 +63,10 @@
   font-size: 4.25rem;
   line-height: 110%;
   text-transform: capitalize;
+
+  @media (max-width: 1280px) {
+    font-size: 2.375rem;
+  }
 }
 
 .card-title-column {
@@ -40,6 +76,14 @@
   font-size: 2.375rem;
   line-height: 120%;
   text-transform: capitalize;
+
+  @media (max-width: 1280px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 834px) {
+    text-align: center;
+  }
 }
 
 .card-description {
@@ -49,4 +93,29 @@
   font-size: 1.375rem;
   line-height: 160%;
   text-transform: capitalize;
+
+  @media (max-width: 1280px) {
+    font-size: 1rem;
+  }
+}
+
+.tranding-cards-container {
+  @include displayFlex(row, flex-start, space-between);
+
+  @media (max-width: 1280px) {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 834px) {
+    @include displayFlex(column);
+  }
+}
+
+.creators-cards-container {
+  @include displayFlex(row, center, space-between);
+
+  @media (max-width: 834px) {
+    @include displayFlex(column, center);
+  }
 }

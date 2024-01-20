@@ -1,7 +1,6 @@
 <template>
   <q-layout class="position-relative">
     <HeaderApp />
-
     <q-page-container>
       <router-view />
     </q-page-container>

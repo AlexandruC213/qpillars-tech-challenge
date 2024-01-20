@@ -23,13 +23,13 @@
     </div>
 
     <div v-else class="card-column">
-      <div class="d-flex row justify-between">
+      <div class="container">
         <div class="d-flex column q-mb-xl">
           <div class="card-title-column">{{ props.data.title }}</div>
           <div class="card-description">{{ props.data.description }}</div>
         </div>
         <ButtonDesign
-          v-if="props.extraBtn"
+          v-if="props.extraBtn && !isMobileDisplay"
           @onAction="redirectToRegister"
           :icon="extraBtnDetails.icon"
           :text="extraBtnDetails.text"
@@ -45,6 +45,7 @@
 
 <script setup>
 import { computed } from "vue";
+import { useQuasar } from "quasar";
 import { useRouter } from "vue-router";
 
 import ButtonDesign from "../Global/ButtonDesign.vue";
@@ -69,6 +70,8 @@ const props = defineProps({
   },
 });
 
+const $q = useQuasar();
+
 const rowType = computed(() => {
   return props.cardType === "row";
 });
@@ -78,4 +81,8 @@ const router = useRouter();
 const redirectToRegister = () => {
   router.push("/register");
 };
+
+const isMobileDisplay = computed(() => {
+  return $q.screen.width < $q.screen.sizes.sm;
+});
 </script>

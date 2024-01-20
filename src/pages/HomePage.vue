@@ -3,7 +3,7 @@
     <DisplayCard cardType="row" :data="heroSectionData" />
     <DisplayCard cardType="column" :data="trendingCollectionData">
       <template v-slot:content>
-        <div class="d-flex row justify-between">
+        <div class="tranding-cards-container">
           <TrendingCard
             v-for="element in trendingCollectionData.elements"
             :key="element.id"
@@ -19,13 +19,20 @@
       extraBtn
     >
       <template v-slot:content>
-        <div class="d-flex row items-center justify-between">
+        <div class="creators-cards-container">
           <CreatorCard
             v-for="el in topCreatorsData.elements"
             :key="el.id"
             :data="el"
           />
         </div>
+        <ButtonDesign
+          v-if="isMobileDisplay"
+          :icon="topCreatorsBtn.icon"
+          :text="topCreatorsBtn.text"
+          :btnStyles="topCreatorsBtn.mobileStyle"
+          outlined
+        />
       </template>
     </DisplayCard>
 
@@ -48,29 +55,40 @@
       extraBtn
     >
       <template v-slot:content>
-        <div class="d-flex row items-center justify-between">
+        <div class="creators-cards-container elemnts-gap">
           <AvatarCard
             v-for="card in moreNFTData.cards"
             :key="card.id"
             :cardDetails="card"
-            style="width: 31%"
+            :style="
+              isMobileDisplay ? 'width: 40%; margin-bottom: 20px' : 'width:31%'
+            "
           />
         </div>
+        <ButtonDesign
+          v-if="isMobileDisplay"
+          :icon="discoverNFTBtn.icon"
+          :text="discoverNFTBtn.text"
+          :btnStyles="discoverNFTBtn.mobileStyle"
+          outlined
+        />
       </template>
     </DisplayCard>
   </div>
 </template>
 
 <script setup>
-import { ref, onBeforeMount } from "vue";
+import { useQuasar } from "quasar";
+import { ref, computed, onBeforeMount } from "vue";
 
 import DisplayCard from "../components/Cards/DisplayCard.vue";
 import TrendingCard from "../components/Cards/TrendingCard.vue";
 import CreatorCard from "../components/Cards/CreatorCard.vue";
 import CategoryCard from "../components/Cards/CategoryCard.vue";
 import AvatarCard from "../components/Cards/AvatarCard.vue";
+import ButtonDesign from "../components/Global/ButtonDesign.vue";
 
-// Move this data on store
+const $q = useQuasar();
 
 const heroSectionData = ref({
   title: "Discover digital art & Collect NFTs",
@@ -161,6 +179,7 @@ const topCreatorsBtn = ref({
   icon: "img:public/icons/homePage/rocket-launch-purple.svg",
   text: "View Rankings",
   style: "padding: 0 50px; margin-top: 15px",
+  mobileStyle: "width: 320px; margin: 0 auto",
 });
 
 const categoriesData = ref({
@@ -224,6 +243,7 @@ const discoverNFTBtn = ref({
   icon: "img:public/icons/homePage/eye.svg",
   text: "See All",
   style: "padding: 0 50px; margin-top: 15px",
+  mobileStyle: "width: 320px; margin: 2rem auto",
 });
 
 onBeforeMount(() => {
@@ -242,5 +262,9 @@ onBeforeMount(() => {
     };
     categoriesData.value.elements.push(newCategory);
   }
+});
+
+const isMobileDisplay = computed(() => {
+  return $q.screen.width < $q.screen.sizes.sm;
 });
 </script>
