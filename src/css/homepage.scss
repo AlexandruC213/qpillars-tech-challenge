@@ -119,3 +119,13 @@
     @include displayFlex(column, center);
   }
 }
+
+.categories-cards-container {
+  @include displayFlex(row, center, space-between);
+  flex-wrap: wrap;
+
+  @media (max-width: 834px) {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}

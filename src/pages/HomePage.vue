@@ -38,7 +38,7 @@
 
     <DisplayCard cardType="column" :data="categoriesData">
       <template v-slot:content>
-        <div class="d-flex row items-center justify-between">
+        <div class="categories-cards-container">
           <CategoryCard
             v-for="el in categoriesData.elements"
             :key="el.id"
